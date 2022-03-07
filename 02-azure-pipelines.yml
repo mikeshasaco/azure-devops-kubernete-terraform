@@ -20,9 +20,20 @@ stages:
         - bash: echo $(pipelinevariable)
         - bash: echo $(Build.BuildNumber)
         - bash: echo $(Build.ContainerId)
-        - bash: echo $(Build.BuildId)
+        - bash: echo $(System.DefaultWorkingDirectory)
         - bash: echo $(Build.ArtifactStagingDirectory)
+        - bash: java -version
+        - bash: node --version
+        - bash: python --version
+        - bash: ls -R $(Build.ArtifactStagingDirectory)
 
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(System.DefaultWorkingDirectory)'
+            Contents: |
+              **/*.yaml
+              **/*.tf
+            TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 
   # - stage: DevDeploy
