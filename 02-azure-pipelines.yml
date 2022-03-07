@@ -45,6 +45,4 @@ stages:
         steps: 
         - bash: echo Build ProdDeploy 2
 
-steps:
-- script: echo job1, world!
-  displayName: 'Run a one-line script'
+
