@@ -5,16 +5,26 @@
 
 trigger:
 - master
+# pipleline has multple stages build -> jobs -> there are jobs divided to multple steps
+
+
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world type script!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-    echo more information
-  displayName: 'Run a multi-line script'
+jobs:
+- job: job1 
+  steps:
+  - script: echo Hello, job1 world type script!
+    displayName: 'Run a one-line script'
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+      echo more information
+    displayName: 'Run a multi-line script'
+- job: job2
+  steps:
+    - script: echo Hello, job2 world type script!
+      displayName: 'Run a one-line script'
