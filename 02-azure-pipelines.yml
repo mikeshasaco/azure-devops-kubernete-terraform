@@ -18,35 +18,41 @@ stages:
       - job: SecondJob
         steps: 
         - bash: echo $(pipelinevariable)
+        - bash: echo $(Build.BuildNumber)
+        - bash: echo $(Build.ContainerId)
+        - bash: echo $(Build.BuildId)
+        - bash: echo $(Build.ArtifactStagingDirectory)
 
-  - stage: DevDeploy
-    variables:
-      environment: Dev
-    jobs:
-      - job: DevDeploy1
-        steps:
-        - bash: echo Build $(environment)
-      - job: DevDeploy2
-        steps: 
-        - bash: echo Build Devploy 2
 
-  - stage: QADeploy
-    variables:
-      environment: QA
-    jobs:
-      - job: QADeploy1
-        steps:
-        - bash: echo Build $(environment)
-      - job: QADeploy2
-        steps: 
-        - bash: echo Build QADeploy 2
-  - stage: ProdDeploy
-    jobs:
-      - job: ProdDeploy1
-        steps:
-        - bash: echo Build ProdDeploy
-      - job: ProdDeploy2
-        steps: 
-        - bash: echo Build ProdDeploy 2
+
+  # - stage: DevDeploy
+  #   variables:
+  #     environment: Dev
+  #   jobs:
+  #     - job: DevDeploy1
+  #       steps:
+  #       - bash: echo Build $(environment)
+  #     - job: DevDeploy2
+  #       steps: 
+  #       - bash: echo Build Devploy 2
+
+  # - stage: QADeploy
+  #   variables:
+  #     environment: QA
+  #   jobs:
+  #     - job: QADeploy1
+  #       steps:
+  #       - bash: echo Build $(environment)
+  #     - job: QADeploy2
+  #       steps: 
+  #       - bash: echo Build QADeploy 2
+  # - stage: ProdDeploy
+  #   jobs:
+  #     - job: ProdDeploy1
+  #       steps:
+  #       - bash: echo Build ProdDeploy
+  #     - job: ProdDeploy2
+  #       steps: 
+  #       - bash: echo Build ProdDeploy 2
 
 
