@@ -12,7 +12,7 @@ pool:
 stages:
   - stage: Build
     jobs:
-      - job: First Kob
+      - job: FirstJob
         steps:
         - bash: echo Build FirstJob
       - job: SecondJob
@@ -21,27 +21,27 @@ stages:
 
   - stage: DevDeploy
     jobs:
-      - job: DevDeploy 1
+      - job: DevDeploy1
         steps:
         - bash: echo Build DevPloy 1
-      - job: DevDeploy 2
+      - job: DevDeploy2
         steps: 
         - bash: echo Build Devploy 2
 
   - stage: QADeploy
     jobs:
-      - job: QADeploy 1
+      - job: QADeploy1
         steps:
         - bash: echo Build QADeploy
-      - job: QADeploy 2
+      - job: QADeploy2
         steps: 
         - bash: echo Build QADeploy 2
   - stage: ProdDeploy
     jobs:
-      - job: ProdDeploy 1
+      - job: ProdDeploy1
         steps:
         - bash: echo Build ProdDeploy
-      - job: ProdDeploy 2
+      - job: ProdDeploy2
         steps: 
         - bash: echo Build ProdDeploy 2
 
