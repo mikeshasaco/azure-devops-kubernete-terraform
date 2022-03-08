@@ -11,32 +11,32 @@ pool:
 
 stages:
   - stage: Build 
-jobs: 
-  - job: BuildJob 
-    steps: 
-      - bash: echo "start build job"
+    jobs: 
+      - job: BuildJob 
+        steps: 
+          - bash: echo "start build job"
 
   - stage: DevDeploy 
     jobs: 
       - job: DeveDeployJob
         steps: 
           - bash: echo "start deployment job" 
-          - deployment: DevDeployJob 
-            environment: dev 
-            strategy: 
-              runOnce:
-                deploy: 
-                  steps: 
-                    - script: Deploy to dev
+      - deployment: DevDeployJob 
+        environment: dev 
+        strategy: 
+            runOnce:
+              deploy: 
+                steps: 
+                  - script: Deploy to dev
 
   - stage: QADeploy 
     jobs: 
       - job: QADeployJob
         steps: 
           - bash: echo "start deployment job" 
-          - deployment: QADeployJob 
-            environment: QA 
-            strategy: 
+      - deployment: QADeployJob 
+        environment: QA 
+        strategy: 
               runOnce:
                 deploy: 
                   steps: 
