@@ -9,10 +9,3 @@ pool:
 steps:
 - script: Kubernetes  Terraform Azure!
   displayName: 'run a one line script'
-
-- task: DownloadSecureFile@1
-  name: publickey
-  inputs:
-    secureFile: 'azure_rsa.pub'
-
-
